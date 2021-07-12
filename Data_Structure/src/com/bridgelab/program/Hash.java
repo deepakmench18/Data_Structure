@@ -14,8 +14,6 @@ public class Hash {
     	 this.buckets = new HashNode[numofBuckets];
     	 this.size = 0;
      }	 
-     
-     
      public class HashNode
      {
     	 private Integer key;
@@ -55,13 +53,44 @@ public class Hash {
     	 node.next = head;
     	 buckets [bucketIndex] = node;
      }
+     public String remove(Integer key)
+     {
+    	 int bucketIndex = getBucketIndex(key);
+    	 HashNode head = buckets[bucketIndex];
+    	 HashNode previous = null;
+    	 while(head != null)
+    	 {
+    		 if(head.key.equals(key))
+    		 {
+    			 break;
+    		 }
+    		 previous = head;
+    		 head = head.next;
+    	 }
+    	 if(head == null)
+    	 {
+    		 return null;
+    	 }
+    	 size--;
+    	 if(previous != null)
+    	 {
+    		 previous.next = head.next;
+    	 }
+    	 else
+    	 {
+    		 buckets[bucketIndex] = head.next;
+    	 }
+         return head.value;
+     }
      public static void main(String [] args)
      {
     	 Hash hash = new Hash();
     	 hash.put(5,"deepak");
     	 hash.put(6,"deepa");
     	 hash.put(7,"deep");
+    	 
     	 System.out.println(hash.getValueofkey(5));
+    	 hash.remove(6);
     	 System.out.println("check size of hash " + hash.size());
     	 
      }
@@ -79,9 +108,6 @@ public class Hash {
     		head = head.next;
     	 }
     	 return null;
-     }
-     {
-    	 
      }
      private int size()
      {
