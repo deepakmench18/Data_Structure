@@ -94,6 +94,7 @@ public class Hash {
     	 System.out.println("check size of hash " + hash.size());
     	 
      }
+     
      public String getValueofkey(Integer key)
      {
     	 int bucketIndex = getBucketIndex(key);
@@ -113,6 +114,4 @@ public class Hash {
      {
     	 return size;
      }
-    
 }
-     

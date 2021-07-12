@@ -55,30 +55,30 @@ public class BinaryTree  {
 		System.out.println(root.data);
 		print(root.right);
 	}
-	public boolean nodeValid(TreeNode root, int val) {         //Search particular node is valid or not    
+	public boolean nodeValid(TreeNode root, int val) 
+	{      
 		if (root == null) {
 			return false;
 		}
-		Boolean isValid = false;                           // if valid return true else return false
-
+		Boolean isValid = false;                           
+		
 		while (root != null) {
-			if(val < root.data) {
+			if(val < root.data) 
+			{
 				root = root.left;
 			}
 			else if(val > root.data) {
 				root = root.right;
 			}
-			else {
+			else 
+			{
 				isValid = true;
 				System.out.println("Node is Valid");
 				break;
 			}
-
 		}
 		return isValid;
 	}
-
-
 	public static void main(String[] args) {
 	    	BinaryTree bt = new BinaryTree();
 	    	TreeNode root = null;
