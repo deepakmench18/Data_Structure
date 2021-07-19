@@ -85,8 +85,17 @@ public class SingleLinkedList {
 	    }
 	    public void getSort()
 	    {
-	    	ListNode current = head;
-	    	ListNode previous = current.next;
+	      ListNode current = head;
+	      while(current.next != null)
+	      {
+	    	  if(current.data > current.next.data)
+	    	  {
+	    		  int data = current.data;
+	    		  current.data = current.next.data;
+	    		  current.next.data = data;
+	    	  }
+	    	  current = current.next;
+	      }
 	    	
 	    }
 		public static void main (String [] args) 
@@ -97,11 +106,12 @@ public class SingleLinkedList {
 			ListNode third = new ListNode(70);
 			sll.head.next = second;
 			second.next = third;
-			sll.insertAtFirst(50);
-			sll.insertAtFirst(11);
-			sll.insertAtEnd(25);
-			sll.insertAnyPosition(4,12);
-			sll.anyPositiondelete(2);
+			//sll.insertAtFirst(50);
+			//sll.insertAtFirst(11);
+			//sll.insertAtEnd(25);
+			//sll.insertAnyPosition(4,12);
+			//sll.anyPositiondelete(2);
+			sll.getSort();
 			sll.display();
 		}
         }
